@@ -1,4 +1,4 @@
-package data
+package com.example.hellomobile.data
 
 import androidx.room.Dao
 import androidx.room.Delete

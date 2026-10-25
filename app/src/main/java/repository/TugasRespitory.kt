@@ -1,7 +1,7 @@
-package repository
+package com.example.hellomobile.repository
 
-import data.TugasDao
-import data.TugasEntity
+import com.example.hellomobile.data.TugasDao
+import com.example.hellomobile.data.TugasEntity
 import kotlinx.coroutines.flow.Flow
 
 class TugasRepository(private val tugasDao: TugasDao) {
