@@ -8,6 +8,12 @@ android {
     namespace = "com.example.hellomobile"
     compileSdk {
         version = release(37)
+        buildFeatures {
+            compose = true
+        }
+        composeOptions {
+            kotlinCompilerExtensionVersion = "1.5.1"
+        }
     }
 
     defaultConfig {
@@ -46,4 +52,9 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation("androidx.navigation:navigation-compose:2.7.5")
+    val composeBom = platform("androidx.compose:compose-bom:2024.02.00")
+    implementation(composeBom)
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.activity:activity-compose:1.8.2")
 }
