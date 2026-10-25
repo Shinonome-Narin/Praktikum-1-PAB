@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.hellomobile.data.AppDatabase
 import com.example.hellomobile.data.TugasEntity
 import com.example.hellomobile.repository.TugasRepository
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -29,6 +30,8 @@ class TugasViewModel(
         )
 
     val daftarTugas: StateFlow<List<TugasEntity>> get() = semuaTugas
+
+    fun getTugasById(id: Int): Flow<TugasEntity?> = repository.getTugasById(id)
 
     fun tambah(tugas: TugasEntity) = viewModelScope.launch {
         repository.tambahTugas(tugas)

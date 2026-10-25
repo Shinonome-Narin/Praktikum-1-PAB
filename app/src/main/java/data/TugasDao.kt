@@ -13,6 +13,9 @@ interface TugasDao {
     @Query("SELECT * FROM tugas ORDER BY id DESC")
     fun getAllTugas(): Flow<List<TugasEntity>>
 
+    @Query("SELECT * FROM tugas WHERE id = :id")
+    fun getTugasById(id: Int): Flow<TugasEntity?>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTugas(tugas: TugasEntity)
 

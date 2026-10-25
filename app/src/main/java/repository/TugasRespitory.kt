@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.Flow
 class TugasRepository(private val tugasDao: TugasDao) {
     val semuaTugas: Flow<List<TugasEntity>> = tugasDao.getAllTugas()
 
+    fun getTugasById(id: Int): Flow<TugasEntity?> = tugasDao.getTugasById(id)
+
     suspend fun tambahTugas(tugas: TugasEntity) {
         tugasDao.insertTugas(tugas)
     }
